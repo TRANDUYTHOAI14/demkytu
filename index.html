@@ -1,34 +1,62 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đếm Ký Tự & Từ</title>
-    <link rel="icon" type="image/x-icon" href="https://tourdulichquynhon.com/wp-content/uploads/favicon.ico">
-    <meta property="og:title" content="Bộ đếm ký tự & từ" />
-    <meta property="og:description" content="Ứng dụng giúp bạn đếm số ký tự và từ một cách dễ dàng." />
-    <meta property="og:image" content="images/thumbnail.jpg" />
-    <meta property="og:url" content="https://demtu.vercel.app/" />
+    <title>Ứng dụng Đếm Ký Tự & Chuyển Đổi Chữ</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>📑 Bộ đếm Ký tự & Từ</h1>
-        <textarea id="text-input" placeholder="Nhập văn bản của bạn..."></textarea>
-        <div class="stats">
-            <span>Ký tự: <b id="char-count">0</b></span> |
-            <span>Từ: <b id="word-count">0</b></span>
+    <div class="container mt-4">
+        <button id="toggle-dark-mode" class="btn btn-dark mb-3">🌙 Chế độ Tối</button>
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="appTabs">
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#countTab">📊 Đếm Ký Tự & Từ</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#convertTab">🔠 Chuyển Đổi Chữ</button>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-3">
+            <!-- Tab Đếm Ký Tự -->
+            <div class="tab-pane fade show active animate__animated animate__fadeIn" id="countTab">
+                <textarea id="text-input" class="form-control mb-2" placeholder="Nhập văn bản..."></textarea>
+                <p class="fw-bold">🔢 Số ký tự: <span id="char-count">0</span></p>
+                <p class="fw-bold">📖 Số từ: <span id="word-count">0</span></p>
+                <p id="warning-msg" class="text-danger fw-bold"></p>
+            </div>
+
+            <!-- Tab Chuyển Đổi Chữ -->
+            <div class="tab-pane fade animate__animated animate__fadeIn" id="convertTab">
+                <textarea id="convert-input" class="form-control mb-2" placeholder="Nhập văn bản..."></textarea>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button class="btn btn-primary convert-btn" data-type="uppercase">🔠 Viết Hoa</button>
+                    <button class="btn btn-secondary convert-btn" data-type="lowercase">🔡 Viết Thường</button>
+                    <button class="btn btn-success convert-btn" data-type="capitalize">📝 Hoa Từ Đầu</button>
+                    <button id="copy-btn" class="btn btn-warning">📋 Copy</button>
+                </div>
+                <div class="output-container text-center mt-3">
+                    <strong>Kết quả :</strong> <span id="convert-output" class="fw-bold text-success"> </span>
+                </div> 
+                <p id="copy-msg" class="text-success mt-2" style="display: none;">✔️ Đã sao chép!</p>
+            </div>
         </div>
-        <p id="warning-msg"></p>
-        <button id="toggle-dark-mode">🌙 Chế độ tối</button>
-
-         <!-- 🔥 Thông tin tác giả -->
-        <div class="author">
-            <p>Tác giả: <a id="author-link" href="https://www.facebook.com/duyThoai08102012" target="_blank">Flywait</a></p>
-        </div>
-
-
     </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
