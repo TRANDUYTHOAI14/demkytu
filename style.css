@@ -11,6 +11,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f4f4f4;
+    transition: background 0.3s, color 0.3s;
 }
 
 .container {
@@ -42,4 +43,28 @@ p {
     margin-top: 10px;
     font-size: 18px;
     font-weight: bold;
+}
+
+.warning {
+    color: red;
+    font-weight: bold;
+    display: none;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .container {
+    background-color: #444;
+}
+
+#toggle-dark-mode {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }

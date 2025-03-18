@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đếm ký tự</title>
+    <title>Đếm ký tự & từ</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Ứng dụng Đếm Ký Tự</h1>
+        <button id="toggle-dark-mode">🌙 Chế độ tối</button>
+        <h1>Ứng dụng Đếm Ký Tự & Từ</h1>
         <textarea id="text-input" placeholder="Nhập văn bản tại đây..."></textarea>
+        <p class="warning" id="warning-msg"></p>
         <p>Số ký tự: <span id="char-count">0</span></p>
+        <p>Số từ: <span id="word-count">0</span></p>
     </div>
     <script src="script.js"></script>
 </body>
