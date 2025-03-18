@@ -1,147 +1,88 @@
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Bố cục chính */
+/* 🌟 Định dạng chung */
 body {
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-}
-
-.container {
-    width: 100%;
-    max-width: 600px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
     text-align: center;
+    padding: 20px;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* Nút chế độ tối */
-#toggle-dark-mode {
-    background: #007bff;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
+/* 🌙 Dark Mode */
+body.dark-mode {
+    background: #222;
+    color: #fff;
 }
 
-#toggle-dark-mode:hover {
-    background: #0056b3;
+/* 📌 Khung chứa nội dung */
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
 }
 
-/* Tiêu đề */
+.dark-mode .container {
+    background: #333;
+}
+
+/* 📌 Tiêu đề */
 h1 {
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 30px;
+    margin-top: 50px;
 }
 
-/* Ô nhập liệu */
+/* 📌 Ô nhập */
 textarea {
     width: 100%;
-    min-height: 150px;
-    padding: 10px;
+    height: 100px;
     font-size: 16px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     resize: none;
+    background: #fff;
+    color: #000;
 }
 
-/* Cảnh báo */
-.warning {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
+.dark-mode textarea {
+    background: #444;
+    color: #fff;
+    border: 1px solid #888;
 }
 
-/* Thống kê ký tự & từ */
-p {
+/* 📌 Hiển thị số ký tự */
+.stats {
     font-size: 16px;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
-span {
+/* ⚠️ Cảnh báo */
+#warning-msg {
+    color: red;
     font-weight: bold;
-    color: #007bff;
+    display: none;
 }
 
-/* Phần tác giả */
-.author {
-    margin-top: 20px;
-    text-align: center;
+/* 🌙 Nút Dark Mode ở góc trên phải */
+#toggle-dark-mode {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px;
+    border: none;
+    background: #ffcc00;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
-.author img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    border: 3px solid #007bff;
-}
-
-.author a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
-.author a:hover {
-    color: #0056b3;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        max-width: 100%;
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 20px;
-    }
-
-    textarea {
-        font-size: 14px;
-    }
-
-    .author img {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 18px;
-    }
-
-    textarea {
-        min-height: 120px;
-        font-size: 14px;
-    }
-
-    .author img {
-        width: 50px;
-        height: 50px;
-    }
-
-    #toggle-dark-mode {
-        font-size: 14px;
-        padding: 6px 12px;
-    }
+#toggle-dark-mode:hover {
+    background: #ff9900;
 }

@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đếm ký tự & từ</title>
+    <title>Đếm Ký Tự & Từ</title>
+    <meta property="og:title" content="Bộ đếm ký tự & từ" />
+    <meta property="og:description" content="Ứng dụng giúp bạn đếm số ký tự và từ một cách dễ dàng." />
+    <meta property="og:image" content="https://demtu.vercel.app/thumbnail.jpg" />
+    <meta property="og:url" content="https://demtu.vercel.app/" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <button id="toggle-dark-mode">🌙 Chế độ tối</button>
-        <h1>Ứng dụng Đếm Ký Tự & Từ</h1>
-        <textarea id="text-input" placeholder="Nhập văn bản tại đây..."></textarea>
-        <p class="warning" id="warning-msg"></p>
-        <p>Số ký tự: <span id="char-count">0</span></p>
-        <p>Số từ: <span id="word-count">0</span></p>
-
-        <!-- 🟢 THÊM PHẦN TÁC GIẢ -->
-        <div class="author">
-            <p>Được phát triển bởi <a href="https://www.facebook.com/duyThoai08102012" target="_blank">Flywait</a></p>
+        <h1>📑 Bộ đếm Ký tự & Từ</h1>
+        <textarea id="text-input" placeholder="Nhập văn bản của bạn..."></textarea>
+        <div class="stats">
+            <span>Ký tự: <b id="char-count">0</b></span> |
+            <span>Từ: <b id="word-count">0</b></span>
         </div>
+        <p id="warning-msg"></p>
+        <button id="toggle-dark-mode">🌙 Chế độ tối</button>
+
+         <!-- 🔥 Thông tin tác giả -->
+        <div class="author">
+            <p>Tác giả: <a id="author-link" href="https://www.facebook.com/duyThoai08102012" target="_blank">Flywait</a></p>
+        </div>
+
+
     </div>
     <script src="script.js"></script>
 </body>

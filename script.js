@@ -4,21 +4,38 @@ document.addEventListener("DOMContentLoaded", () => {
     const wordCount = document.getElementById("word-count");
     const warningMsg = document.getElementById("warning-msg");
     const toggleDarkMode = document.getElementById("toggle-dark-mode");
+    const body = document.body;
 
     const MAX_CHARS = 200;
 
-    // 🔹 Load trạng thái văn bản từ LocalStorage
-    if (localStorage.getItem("savedText")) {
-        textInput.value = localStorage.getItem("savedText");
-        updateCounts();
+    // 🟢 Kiểm tra Dark Mode trong LocalStorage
+    function loadDarkMode() {
+        if (localStorage.getItem("darkMode") === "enabled") {
+            body.classList.add("dark-mode");
+            toggleDarkMode.textContent = "☀️ Chế độ sáng";
+        } else {
+            body.classList.remove("dark-mode");
+            toggleDarkMode.textContent = "🌙 Chế độ tối";
+        }
     }
 
-    // 🔹 Load trạng thái Dark Mode từ LocalStorage
-    if (localStorage.getItem("darkMode") === "enabled") {
-        document.body.classList.add("dark-mode");
-    }
+    // 🔹 Load trạng thái Dark Mode ngay khi tải trang
+    loadDarkMode();
 
-    // 🟢 Hàm cập nhật số ký tự & số từ
+    // 🔹 Toggle Dark Mode khi nhấn nút
+    toggleDarkMode.addEventListener("click", () => {
+        if (body.classList.contains("dark-mode")) {
+            body.classList.remove("dark-mode");
+            localStorage.setItem("darkMode", "disabled");
+            toggleDarkMode.textContent = "🌙 Chế độ tối";
+        } else {
+            body.classList.add("dark-mode");
+            localStorage.setItem("darkMode", "enabled");
+            toggleDarkMode.textContent = "☀️ Chế độ sáng";
+        }
+    });
+
+    // 🟢 Cập nhật số ký tự & từ
     function updateCounts() {
         const text = textInput.value;
         charCount.textContent = text.length;
@@ -32,16 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
             warningMsg.style.display = "none";
         }
 
-        // Lưu trạng thái vào LocalStorage
+        // Lưu văn bản vào LocalStorage
         localStorage.setItem("savedText", text);
     }
 
-    // 🟢 Cập nhật khi người dùng nhập
-    textInput.addEventListener("input", updateCounts);
+    // 🔹 Load trạng thái văn bản từ LocalStorage
+    if (localStorage.getItem("savedText")) {
+        textInput.value = localStorage.getItem("savedText");
+        updateCounts();
+    }
 
-    // 🟢 Chuyển đổi Dark Mode
-    toggleDarkMode.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-        localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "enabled" : "disabled");
-    });
+    // 🔹 Cập nhật khi người dùng nhập
+    textInput.addEventListener("input", updateCounts);
 });
